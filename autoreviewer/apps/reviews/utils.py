@@ -5,9 +5,11 @@ from random import random, choice
 def review(game):
     score = random()
 
-    return {
+    reviewed = {
         'score': score * 10,
-        'name': game['name'],
+        'summary': u'I thought it was {}.'.format(
+            random_line_from('summaries')
+        ),
         'pros': [
             get_accolade(True) for i in
             xrange(int(random() * score * 5))
@@ -17,6 +19,9 @@ def review(game):
             xrange(int(random() * (1 - score) * 5))
         ],
     }
+
+    reviewed.update(game)
+    return reviewed
 
 
 def get_accolade(positive):

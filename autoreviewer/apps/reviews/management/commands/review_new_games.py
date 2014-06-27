@@ -18,10 +18,12 @@ class Command(BaseCommand):
             ),
             sort='original_release_date:desc',
             limit=100,
-            field_list='name,original_release_date',
+            field_list='name,original_release_date,deck',
         )['results']:
             print (
                 u'{name} - {score:.1f}/10\n'
+                u'{deck}\n'
+                u'{summary}\n'
                 u'Pros: {pros}\n'
                 u'Cons: {cons}'
             ).format(**review(game))
