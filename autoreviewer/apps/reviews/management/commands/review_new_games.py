@@ -20,4 +20,8 @@ class Command(BaseCommand):
             limit=100,
             field_list='name,original_release_date',
         )['results']:
-            print review(game)
+            print (
+                u'{name} - {score:.1f}/10\n'
+                u'Pros: {pros}\n'
+                u'Cons: {cons}'
+            ).format(**review(game))

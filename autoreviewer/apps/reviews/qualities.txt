@@ -1,0 +1,9 @@
+art
+graphics
+soundtrack
+controls
+gameplay
+multiplayer
+story
+lore
+combat
