@@ -13,7 +13,7 @@ multiplayer
 lore
 environments
 characters
-frame rate
+framerate
 map size
 sense of scale
 verticality
