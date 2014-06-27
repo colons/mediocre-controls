@@ -8,7 +8,7 @@ def review(game):
     score = random()
 
     reviewed = {
-        'score': score * settings.MAX_SCORE,
+        'score': score * settings.MAX_SCORE,  # XXX don't do this
         'summary': u'I thought it was {}.'.format(
             random_summary_for(score)
         ),
