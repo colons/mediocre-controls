@@ -8,7 +8,7 @@ def review(game):
     reviewed = {
         'score': score * 10,
         'summary': u'I thought it was {}.'.format(
-            random_line_from('summaries')
+            random_summary_for(score)
         ),
         'pros': [
             get_accolade(True) for i in
@@ -24,14 +24,27 @@ def review(game):
     return reviewed
 
 
+def random_summary_for(score):
+    summaries = []
+    for line in lines_from('summaries'):
+        range_str, summary = line.split(' ', 1)
+        low, high = [float(n)/10 for n in range_str.split('-')]
+        if low <= score <= high:
+            summaries.append(summary)
+
+    return choice(summaries)
+
+
 def get_accolade(positive):
     quality = random_line_from('qualities')
     evaluation = random_line_from('positive' if positive else 'negative')
     return ' '.join((evaluation, quality)).capitalize()
 
 
-def random_line_from(slug):
+def lines_from(slug):
     with open(join(dirname(__file__), 'corpus', '{}.txt'.format(slug))) as f:
-        lines = [l.strip() for l in f.readlines() if l.strip()]
+        return [l.strip() for l in f.readlines() if l.strip()]
 
-    return choice(lines)
+
+def random_line_from(slug):
+    return choice(lines_from(slug))
