@@ -1,6 +1,8 @@
 from django.core.management.base import BaseCommand
 from datetime import date
 
+from django.conf import settings
+
 from ...utils import review
 from .....giantbomb import GiantBombAPI
 
@@ -21,9 +23,9 @@ class Command(BaseCommand):
             field_list='name,original_release_date,deck',
         )['results']:
             print (
-                u'{name} - {score:.1f}/10\n'
+                u'{name} - {score:.1f}/{max_score}\n'
                 u'{deck}\n'
                 u'{summary}\n'
                 u'Pros: {pros}\n'
                 u'Cons: {cons}'
-            ).format(**review(game))
+            ).format(max_score=settings.MAX_SCORE, **review(game))

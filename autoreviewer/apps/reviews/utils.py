@@ -1,12 +1,14 @@
 from os.path import join, dirname
 from random import random, choice
 
+from django.conf import settings
+
 
 def review(game):
     score = random()
 
     reviewed = {
-        'score': score * 10,
+        'score': score * settings.MAX_SCORE,
         'summary': u'I thought it was {}.'.format(
             random_summary_for(score)
         ),
@@ -28,7 +30,8 @@ def random_summary_for(score):
     summaries = []
     for line in lines_from('summaries'):
         range_str, summary = line.split(' ', 1)
-        low, high = [float(n)/10 for n in range_str.split('-')]
+        low, high = [float(n)/settings.MAX_SCORE
+                     for n in range_str.split('-')]
         if low <= score <= high:
             summaries.append(summary)
 

@@ -42,7 +42,8 @@ LANGUAGE_CODE = 'en-gb'
 TIME_ZONE = 'Europe/London'
 USE_TZ = True
 
-
 STATIC_URL = '/static/'
+
+MAX_SCORE = 10
 
 from .secrets import SECRET_KEY, GIANT_BOMB_API_KEY  # noqa
