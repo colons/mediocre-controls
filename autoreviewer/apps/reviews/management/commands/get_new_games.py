@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from datetime import date
-from random import random
 
+from ...utils import review
 from .....giantbomb import GiantBombAPI
 
 
@@ -20,4 +20,4 @@ class Command(BaseCommand):
             limit=100,
             field_list='name,original_release_date',
         )['results']:
-            print u'{} - {:.1f}/10'.format(game['name'], random() * 10)
+            print review(game)
