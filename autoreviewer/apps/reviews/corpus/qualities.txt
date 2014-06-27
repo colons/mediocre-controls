@@ -4,16 +4,20 @@ soundtrack
 controls
 story
 backstory
-voice overs
+voice-over
 pacing
 engine
+campaign
 single player
-multi-player
+multiplayer
 lore
 environments
 characters
 frame rate
 map size
+sense of scale
+verticality
+sense of speed
 dialogue
 cutscenes
 mission variety
