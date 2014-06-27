@@ -1,4 +1,22 @@
 graphics
-art
+art style
 soundtrack
 controls
+story
+backstory
+voice overs
+pacing
+engine
+single player
+multi-player
+lore
+environments
+characters
+frame rate
+map size
+dialogue
+cutscenes
+mission variety
+cinematics
+physics
+autofellatio
